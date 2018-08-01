@@ -25,7 +25,7 @@ jobs:
           - v1-dependencies-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
-            
+
       - save_cache:
           paths:
             - node_modules
@@ -33,3 +33,9 @@ jobs:
         
       # run tests!
       - run: npm test
+
+      deployment:
+        production:
+          branch: master
+          commands:
+            - rsync -r circleci-ci-examples root@66.42.50.117:/app/www/

@@ -43,5 +43,5 @@ jobs:
     steps:  
       - run:
           name: Deploy Over SSH
-          command: 
+          command: |
             ssh  root@66.42.50.117

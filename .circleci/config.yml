@@ -34,8 +34,11 @@ jobs:
       # run tests!
       - run: npm test
 
-      deployment:
-        production:
-          branch: master
-          commands:
-            - rsync -r circleci-ci-examples root@66.42.50.117:/app/www/
+  deploy:
+    machine:
+      enabled: true
+    steps:
+      - run:
+          name: Deploy Over SSH
+          command: 
+            rsync -r circleci-ci-examples root@66.42.50.117:/app/www/

@@ -44,7 +44,7 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-            ssh  root@66.42.50.117 'cd /app/www && git pull origin master'
+            ssh  root@66.42.50.117 'cd /app/www/circleci-ci-examples && git pull origin master'
 
 workflows:
   version: 2

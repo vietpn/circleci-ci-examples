@@ -45,3 +45,15 @@ jobs:
           name: Deploy Over SSH
           command: |
             ssh  root@66.42.50.117
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master

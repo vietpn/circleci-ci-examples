@@ -44,7 +44,7 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-            ssh  root@66.42.50.117 'touch /app/www/test.txt'
+            ssh  root@66.42.50.117 'cd /app/www && git pull origin master'
 
 workflows:
   version: 2
